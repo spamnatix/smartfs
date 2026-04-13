@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flyff SmartFS — The Final Evolution of Supporter Bots</title>
+    <meta name="description" content="Fully autonomous FS/RM bot for Flyff Universe. Auto-Heal, Auto-Buff, Holy Cross AI. Free 30-minute trial.">
+    <meta name="keywords" content="Flyff, Flyff Universe, FS Bot, RM Bot, Support Bot, Auto Heal, Auto Buff, Holy Cross, Flyff Bot, MMORPG Bot">
+    <meta property="og:title" content="Flyff SmartFS — Autonomous FS Bot">
+    <meta property="og:description" content="Your FS plays itself. Auto-Heal, Auto-Buff, Holy Cross AI — all running in the background.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://spamnatix.github.io/smartfs">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        a { color: #00d4aa; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        .hero h1 span { color: #00d4aa; }
+        .hero .subtitle {
+            font-size: 1.3em;
+            color: #888;
+            margin-bottom: 30px;
+        }
+        .hero .tagline {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+        .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,212,170,0.3); text-decoration: none; }
+        .btn-primary { background: #00d4aa; color: #0a0a0f; }
+        .btn-secondary { background: transparent; color: #00d4aa; border: 2px solid #00d4aa; }
+        .btn-discord { background: #5865F2; color: #fff; }
+
+        .trial-badge {
+            display: inline-block;
+            background: #00d4aa;
+            color: #0a0a0f;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        /* Features */
+        .section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+        .section h2 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+        .section h2 span { color: #00d4aa; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .feature-card {
+            background: #12121a;
+            border: 1px solid #2a2a3a;
+            border-radius: 12px;
+            padding: 30px;
+            transition: border-color 0.3s;
+        }
+        .feature-card:hover { border-color: #00d4aa; }
+        .feature-card .icon { font-size: 2em; margin-bottom: 15px; }
+        .feature-card h3 { font-size: 1.3em; margin-bottom: 10px; color: #fff; }
+        .feature-card p { color: #999; font-size: 0.95em; }
+        .feature-card .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .badge-premium { background: #1e90ff; color: #fff; }
+        .badge-basic { background: #00d4aa; color: #0a0a0f; }
+
+        /* Pricing */
+        .pricing { background: #12121a; padding: 60px 20px; }
+        .pricing-inner { max-width: 900px; margin: 0 auto; }
+        .pricing h2 { font-size: 2.2em; text-align: center; margin-bottom: 10px; color: #fff; }
+        .pricing .sale-badge {
+            text-align: center;
+            color: #ff4444;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .price-card {
+            background: #0a0a0f;
+            border: 2px solid #2a2a3a;
+            border-radius: 12px;
+            padding: 35px;
+            text-align: center;
+        }
+        .price-card.featured { border-color: #1e90ff; position: relative; }
+        .price-card.featured::after {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e90ff;
+            color: #fff;
+            padding: 3px 15px;
+            border-radius: 10px;
+            font-size: 0.75em;
+            font-weight: 700;
+        }
+        .price-card h3 { font-size: 1.5em; margin-bottom: 15px; }
+        .price-card .price-old { text-decoration: line-through; color: #666; font-size: 1.1em; }
+        .price-card .price {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin: 10px 0;
+        }
+        .price-card .price-basic { color: #00d4aa; }
+        .price-card .price-premium { color: #1e90ff; }
+        .price-card .period { color: #888; }
+        .price-card ul { list-style: none; text-align: left; margin: 20px 0; }
+        .price-card li { padding: 5px 0; color: #ccc; }
+        .price-card li::before { content: '✅ '; }
+        .promo {
+            text-align: center;
+            margin-top: 25px;
+            padding: 15px;
+            background: #1a1a2e;
+            border-radius: 8px;
+            color: #FFD700;
+            font-weight: 700;
+        }
+
+        /* How it works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            counter-reset: step;
+        }
+        .step {
+            background: #12121a;
+            border: 1px solid #2a2a3a;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            counter-increment: step;
+        }
+        .step::before {
+            content: counter(step);
+            display: block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background: #00d4aa;
+            color: #0a0a0f;
+            font-weight: 900;
+            font-size: 1.2em;
+            margin: 0 auto 15px;
+        }
+        .step h3 { margin-bottom: 8px; color: #fff; }
+        .step p { color: #999; font-size: 0.9em; }
+
+        /* Safety */
+        .safety { background: #12121a; padding: 40px 20px; }
+        .safety-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .safety-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .safety-item { text-align: center; }
+        .safety-item .icon { font-size: 2em; margin-bottom: 8px; }
+        .safety-item p { color: #999; font-size: 0.9em; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #555;
+            font-size: 0.85em;
+        }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a { margin: 0 15px; color: #888; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2em; }
+            .pricing-cards { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="trial-badge">30-MINUTE FREE TRIAL — NO KEY REQUIRED</div>
+    <h1>FLYFF <span>SmartFS</span></h1>
+    <p class="subtitle">The Final Evolution of Supporter Bots</p>
+    <p class="tagline">Your FS plays itself. Auto-Heal, Auto-Buff, Holy Cross AI —<br>fully autonomous, running in the background.</p>
+    <div class="cta-buttons">
+        <a href="https://flyffsmartfs.sell.app" class="btn btn-primary">Download Free Trial</a>
+        <a href="https://flyffsmartfs.sell.app" class="btn btn-secondary">Buy Now</a>
+        <a href="https://discord.gg/YSvRJPrhvU" class="btn btn-discord">Join Discord</a>
+    </div>
+</div>
+
+<!-- Features -->
+<div class="section">
+    <h2>Everything Your FS <span>Needs</span></h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="icon">🛡️</div>
+            <span class="badge badge-premium">PREMIUM</span>
+            <h3>Auto-Heal</h3>
+            <p>Real-time HP monitoring through the party window. Heals instantly when Main's HP drops. Supports Heal and Heal Rain — choose your build.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🚨</div>
+            <span class="badge badge-premium">PREMIUM</span>
+            <h3>Emergency Heal</h3>
+            <p>Critical HP detected? All actions are instantly interrupted — the bot spam-heals until Main is safe. Highest priority in the entire system.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">💀</div>
+            <span class="badge badge-premium">PREMIUM</span>
+            <h3>Auto Resurrection</h3>
+            <p>Main died? Bot automatically casts Resurrection, verifies HP, retries up to 3 times. Healing and buffing resume instantly after res.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">✨</div>
+            <span class="badge badge-basic">BASIC</span>
+            <h3>Auto-Buff (13 Skills)</h3>
+            <p>All RM/FS buff skills with individual timers. Haste, Patience, Quick Step, Beef Up, GT, Holy Guard and more. Natural timing variation included.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">👁️</div>
+            <span class="badge badge-premium">PREMIUM</span>
+            <h3>Icon Detection</h3>
+            <p>Visually detects missing buff icons on Main. Only rebuffs when a buff is confirmed missing — no wasted casts, no predictable patterns.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">⚔️</div>
+            <span class="badge badge-premium">PREMIUM</span>
+            <h3>Holy Cross AI</h3>
+            <p>Custom-trained AI model detects monsters in real time. Identifies Main's target and casts HC automatically. Runs as a separate parallel process.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">💊</div>
+            <span class="badge badge-premium">PREMIUM</span>
+            <h3>MP Potion</h3>
+            <p>Independent background monitoring — uses potions automatically when MP runs low. Works even during rebuff sequences. Anti-spam protection built in.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🖥️</div>
+            <span class="badge badge-basic">BASIC</span>
+            <h3>Full Background Mode</h3>
+            <p>No mouse hijacking, no window focus stealing, no blocked keyboard. Play your Main, browse the web, or watch movies — your FS just works.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🔄</div>
+            <span class="badge badge-premium">PREMIUM</span>
+            <h3>Self-Buff & Self-Heal</h3>
+            <p>Monitors your FS for missing buffs and HP drops. Auto-heals when taking aggro, recasts self-buffs when they expire. 6 self-buffs supported.</p>
+        </div>
+    </div>
+</div>
+
+<!-- How it Works -->
+<div class="section">
+    <h2>Up and Running in <span>5 Minutes</span></h2>
+    <div class="steps-grid">
+        <div class="step">
+            <h3>Download</h3>
+            <p>Run the EXE — trial starts instantly. No key needed.</p>
+        </div>
+        <div class="step">
+            <h3>Open Browsers</h3>
+            <p>Click "Open Browser" for FS and Main. Log into Flyff.</p>
+        </div>
+        <div class="step">
+            <h3>Scan Names</h3>
+            <p>One-time 10-second scan. Click Main and FS in the party window.</p>
+        </div>
+        <div class="step">
+            <h3>Configure</h3>
+            <p>Set your heal and buff hotkeys. Enable what you need.</p>
+        </div>
+        <div class="step">
+            <h3>START</h3>
+            <p>Hit START. Your FS is now fully autonomous. Killswitch stops everything.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Safety -->
+<div class="safety">
+    <div class="safety-inner">
+        <h2>Safe & <span style="color:#00d4aa">Undetectable</span></h2>
+        <div class="safety-badges">
+            <div class="safety-item">
+                <div class="icon">🔒</div>
+                <p>No memory injection</p>
+            </div>
+            <div class="safety-item">
+                <div class="icon">🛡️</div>
+                <p>No DLL hooking</p>
+            </div>
+            <div class="safety-item">
+                <div class="icon">👻</div>
+                <p>Invisible to anti-cheat</p>
+            </div>
+            <div class="safety-item">
+                <div class="icon">🖥️</div>
+                <p>Runs 100% locally</p>
+            </div>
+            <div class="safety-item">
+                <div class="icon">🤖</div>
+                <p>Human-like delays</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pricing -->
+<div class="pricing">
+    <div class="pricing-inner">
+        <h2>Pricing</h2>
+        <p class="sale-badge">🔥 LAUNCH SALE — THIS MONTH ONLY 🔥</p>
+        <div class="pricing-cards">
+            <div class="price-card">
+                <h3 style="color:#00d4aa">Basic</h3>
+                <div class="price-old">€9.99/month</div>
+                <div class="price price-basic">€6.99</div>
+                <div class="period">per month — 30% off</div>
+                <ul>
+                    <li>Timer-based Buffs (13 skills)</li>
+                    <li>GT + Holy Guard</li>
+                    <li>Auto-Follow</li>
+                    <li>Killswitch</li>
+                    <li>Dynamic party detection</li>
+                    <li>Chrome & Edge support</li>
+                    <li>Background mode</li>
+                    <li>Auto-Updater</li>
+                </ul>
+                <a href="https://flyffsmartfs.sell.app" class="btn btn-primary" style="width:100%">Get Basic</a>
+            </div>
+            <div class="price-card featured">
+                <h3 style="color:#1e90ff">Premium</h3>
+                <div class="price-old">€19.99/month</div>
+                <div class="price price-premium">€14.99</div>
+                <div class="period">per month — 25% off</div>
+                <ul>
+                    <li>Everything in Basic</li>
+                    <li>Auto-Heal (real-time)</li>
+                    <li>Emergency Heal</li>
+                    <li>Auto Resurrection</li>
+                    <li>Self-Heal / Self-Buff</li>
+                    <li>MP Potion automation</li>
+                    <li>Icon-Detection Rebuff</li>
+                    <li>Holy Cross AI (Alpha)</li>
+                </ul>
+                <a href="https://flyffsmartfs.sell.app" class="btn btn-secondary" style="width:100%; border-color:#1e90ff; color:#1e90ff">Get Premium</a>
+            </div>
+        </div>
+        <div class="promo">🎁 PROMO CODE: SMARTFS10 — 10% off on top of the launch discount!</div>
+    </div>
+</div>
+
+<!-- Final CTA -->
+<div class="section" style="text-align:center; padding: 60px 20px;">
+    <h2>Ready to <span>Automate</span> Your FS?</h2>
+    <p style="color:#999; margin-bottom:30px; font-size:1.1em;">30-minute free trial. All features unlocked. No key required.</p>
+    <div class="cta-buttons">
+        <a href="https://flyffsmartfs.sell.app" class="btn btn-primary">Download Now — It's Free</a>
+        <a href="https://discord.gg/YSvRJPrhvU" class="btn btn-discord">Join Discord</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <div class="footer-links">
+        <a href="https://flyffsmartfs.sell.app">Shop</a>
+        <a href="https://discord.gg/YSvRJPrhvU">Discord</a>
+    </div>
+    <p>Flyff SmartFS &copy; 2026. Botting violates Flyff Universe ToS. Use at your own risk.</p>
+    <p style="margin-top:5px;">Not affiliated with Gala Lab or Sniegu.</p>
+</div>
+
+</body>
+</html>

@@ -304,6 +304,7 @@
     <div class="trial-badge">30-MINUTE FREE TRIAL — NO KEY REQUIRED</div>
     <h1>FLYFF <span>SmartFS</span></h1>
     <p class="subtitle">The Final Evolution of Supporter Bots</p>
+    <p style="display:inline-block; background:rgba(0,212,170,0.15); color:#00d4aa; padding:6px 14px; border-radius:12px; font-size:0.9em; font-weight:600; margin-bottom:20px;">Latest: v1.0.22 — PWA Support &amp; Pixel-Perfect HP Reading</p>
     <p class="tagline">Your FS plays itself. Auto-Heal, Auto-Buff, Holy Cross AI —<br>fully autonomous, running in the background.</p>
     <div class="cta-buttons">
         <a href="https://flyffsmartfs.sell.app/product/smartfsexezip?store=flyffsmartfs&quantity=1" class="btn btn-primary" target="_blank">Download Free Trial</a>
@@ -368,7 +369,7 @@
             <div class="icon">🔄</div>
             <span class="badge badge-premium">PREMIUM</span>
             <h3>Self-Buff & Self-Heal</h3>
-            <p>Monitors your FS for missing buffs and HP drops. Auto-heals when taking aggro, recasts self-buffs when they expire. 6 self-buffs supported.</p>
+            <p>Monitors your FS for missing buffs and HP drops. Auto-heals when taking aggro, recasts self-buffs when they expire. 7 self-buffs supported — Mental Sign always first, Haste always second.</p>
         </div>
     </div>
 </div>
@@ -493,8 +494,8 @@
             <div class="step-number">2</div>
             <div class="step-content">
                 <h3>Open Browsers</h3>
-                <p>In the GUI, click <strong>"Open FS Browser"</strong> and <strong>"Open Main Browser"</strong>. This opens Chrome/Edge in a special debug mode.</p>
-                <p class="warning">⚠️ CRITICAL: Always start Flyff through the bot! If you open Chrome manually, the bot cannot connect.</p>
+                <p>Recommended: in the GUI, click <strong>"Open FS Browser"</strong> and <strong>"Open Main Browser"</strong>. This launches Chrome/Edge in debug mode and opens Flyff Universe directly.</p>
+                <p>Already have Flyff open? Since <strong>v1.0.22</strong>, SmartFS also detects already-running Flyff windows — including <strong>installed apps (PWAs)</strong>. On the first scan or start, the bot offers a one-click restart with debug port. Your login stays intact.</p>
             </div>
         </div>
 
@@ -607,11 +608,11 @@
         </div>
         <div class="faq-item">
             <h3>What resolution is supported?</h3>
-            <p>1920x1080 Fullscreen (F11 in browser). Higher resolutions (1440p, 4K) are in development.</p>
+            <p>1920x1080 Fullscreen is the main target. <strong>1440p and 4K are also supported</strong> since v1.0.2 — the scan dialog and bar measurements scale proportionally.</p>
         </div>
         <div class="faq-item">
             <h3>Can I use my PC while it runs?</h3>
-            <p>Yes. SmartFS runs completely in the background — never touches your mouse or keyboard. The FS browser window must not be minimized.</p>
+            <p>Yes, but Flyff must stay in the <strong>foreground</strong>. ALT+TAB away or minimizing the Flyff browser triggers Chromium's WebGL background throttling — the bot sees stale pixels and reacts with delay. Tip: use a second monitor or position the bot GUI next to Flyff.</p>
         </div>
         <div class="faq-item">
             <h3>Do I need both accounts on one PC?</h3>
@@ -619,7 +620,11 @@
         </div>
         <div class="faq-item">
             <h3>Chrome or Edge?</h3>
-            <p>Both are supported. Always open Flyff through the bot's "Open Browser" button — never open it manually.</p>
+            <p>Both work, including Flyff as an <strong>installed app (PWA)</strong> since v1.0.22. The bot auto-detects already-running instances and offers a one-click relaunch with debug port.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I use Flyff as an installed app?</h3>
+            <p>Yes. Since v1.0.22 the bot supports PWA (Edge/Chrome "Install as app"). Limitation: if BOTH chars are PWAs, Chromium shares one process — use mixed mode (one PWA + one regular tab) or two different browsers.</p>
         </div>
         <div class="faq-item">
             <h3>Is it detectable?</h3>

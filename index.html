@@ -156,9 +156,13 @@
         .price-card .price-premium { color: #FFD700; }
         .price-card .price-lifetime { color: #BB86FC; }
         .price-card .period { color: #888; }
-        .price-card ul { list-style: none; text-align: left; margin: 20px 0; }
+        .price-card ul { list-style: none; text-align: left; margin: 20px 0; padding: 0; }
         .price-card li { padding: 5px 0; color: #ccc; }
         .price-card li::before { content: '✅ '; }
+        .price-card li.no::before { content: '❌ '; }
+        .price-card li.no { color: #666; text-decoration: line-through; }
+        .price-card li.divider { list-style: none; border-top: 1px solid #2a2a3a; margin: 8px 0; padding: 0; }
+        .price-card li.divider::before { content: ''; }
         .promo {
             text-align: center;
             margin-top: 25px;
@@ -459,6 +463,15 @@
                     <li>Chrome / Edge / PWA support</li>
                     <li>Auto-Updates</li>
                     <li><strong>24h Premium trial</strong> on first start</li>
+                    <li class="divider"></li>
+                    <li class="no">Smart Heal (HP-based)</li>
+                    <li class="no">Emergency Heal</li>
+                    <li class="no">MP Potion automation</li>
+                    <li class="no">Icon Auto-Detect Rebuff</li>
+                    <li class="no">Self-Buff Auto-Detect</li>
+                    <li class="no">Self-Heal for FS</li>
+                    <li class="no">Auto Resurrection</li>
+                    <li class="no">Holy Cross AI</li>
                 </ul>
                 <a href="https://flyffsmartfs.sell.app/product/smartfsexezip?store=flyffsmartfs&quantity=1" class="btn btn-secondary" style="width:100%; border-color:#888; color:#888" target="_blank">Download Free</a>
             </div>

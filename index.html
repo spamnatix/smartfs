@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flyff SmartFS — #1 Flyff Universe Bot | Autonomous FS/RM Bot</title>
-    <meta name="description" content="The best Flyff Universe bot for FS and RM automation. Auto-Heal, Auto-Buff, Holy Cross AI. Fully autonomous Flyff bot running in the background. Free forever + 24h Premium trial.">
-    <meta name="keywords" content="Flyff Universe bot, Flyff bot, Flyff FS bot, Flyff RM bot, Flyff Universe FS bot, Flyff support bot, Flyff auto heal, Flyff auto buff, Flyff Holy Cross bot, Flyff Universe automation, Flyff heal bot, Flyff buff bot, Flyff Universe helper, MMORPG bot, Flyff SmartFS">
-    <meta property="og:title" content="Flyff SmartFS — #1 Flyff Universe Bot | Auto-Heal, Auto-Buff, HC AI">
-    <meta property="og:description" content="The best Flyff Universe bot. Your FS plays itself — Auto-Heal, Auto-Buff, Holy Cross AI, all running in the background. Free forever + 24h Premium trial.">
+    <title>Flyff SmartFS — Private FS Companion for Flyff Universe</title>
+    <meta name="description" content="Flyff SmartFS — a private, invite-only FS companion bot for Flyff Universe. Auto-Heal, Auto-Buff, Holy Cross AI. Not for sale — access by vouch only.">
+    <meta name="keywords" content="Flyff Universe, Flyff SmartFS, Flyff FS bot, private Flyff bot, Flyff support automation">
+    <meta property="og:title" content="Flyff SmartFS — Private FS Companion (Invite Only)">
+    <meta property="og:description" content="A private, invite-only FS companion for Flyff Universe. Not for sale.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://spamnatix.github.io/smartfs">
+    <meta name="robots" content="noindex">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
@@ -61,16 +62,18 @@
         .btn-primary { background: #00d4aa; color: #0a0a0f; }
         .btn-secondary { background: transparent; color: #00d4aa; border: 2px solid #00d4aa; }
         .btn-discord { background: #5865F2; color: #fff; }
+        .btn-epvp { background: #FF6B35; color: #fff; }
 
-        .trial-badge {
+        .private-banner {
             display: inline-block;
-            background: #00d4aa;
-            color: #0a0a0f;
-            padding: 8px 20px;
+            background: #2a0a0a;
+            color: #ff6666;
+            padding: 10px 24px;
             border-radius: 20px;
             font-weight: 700;
-            font-size: 1.1em;
+            font-size: 1.05em;
             margin-bottom: 30px;
+            border: 1px solid #ff6666;
         }
 
         /* Features */
@@ -99,79 +102,41 @@
         .feature-card .icon { font-size: 2em; margin-bottom: 15px; }
         .feature-card h3 { font-size: 1.3em; margin-bottom: 10px; color: #fff; }
         .feature-card p { color: #999; font-size: 0.95em; }
-        .feature-card .badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.75em;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .badge-premium { background: #1e90ff; color: #fff; }
-        .badge-basic { background: #00d4aa; color: #0a0a0f; }
 
-        /* Pricing */
-        .pricing { background: #12121a; padding: 60px 20px; }
-        .pricing-inner { max-width: 900px; margin: 0 auto; }
-        .pricing h2 { font-size: 2.2em; text-align: center; margin-bottom: 10px; color: #fff; }
-        .pricing .sale-badge {
-            text-align: center;
-            color: #ff4444;
-            font-weight: 700;
-            font-size: 1.2em;
-            margin-bottom: 30px;
+        /* Access */
+        .access { background: #12121a; padding: 60px 20px; }
+        .access-inner { max-width: 800px; margin: 0 auto; }
+        .access h2 { font-size: 2.2em; text-align: center; margin-bottom: 20px; color: #fff; }
+        .access h2 span { color: #FF6B35; }
+        .access-intro { text-align: center; color: #ccc; margin-bottom: 30px; font-size: 1.05em; }
+        .access-steps {
+            counter-reset: astep;
+            display: grid;
+            gap: 15px;
         }
-        .pricing-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-        @media (max-width: 900px) { .pricing-cards { grid-template-columns: 1fr; } }
-        .price-card {
+        .access-step {
             background: #0a0a0f;
-            border: 2px solid #2a2a3a;
-            border-radius: 12px;
-            padding: 35px;
-            text-align: center;
-        }
-        .price-card.featured { border-color: #FFD700; position: relative; }
-        .price-card.featured::after {
-            content: 'MOST POPULAR';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #FFD700;
-            color: #0a0a0f;
-            padding: 3px 15px;
+            border: 1px solid #2a2a3a;
             border-radius: 10px;
-            font-size: 0.75em;
-            font-weight: 700;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            counter-increment: astep;
         }
-        .price-card h3 { font-size: 1.5em; margin-bottom: 15px; }
-        .price-card .price-old { text-decoration: line-through; color: #666; font-size: 1.1em; }
-        .price-card .price {
-            font-size: 2.5em;
+        .access-step::before {
+            content: counter(astep);
+            min-width: 36px;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 50%;
+            background: #FF6B35;
+            color: #fff;
             font-weight: 900;
-            margin: 10px 0;
-        }
-        .price-card .price-free { color: #888; }
-        .price-card .price-basic { color: #00d4aa; }
-        .price-card .price-premium { color: #FFD700; }
-        .price-card .price-lifetime { color: #BB86FC; }
-        .price-card .period { color: #888; }
-        .price-card ul { list-style: none; text-align: left; margin: 20px 0; padding: 0; }
-        .price-card li { padding: 5px 0; color: #ccc; }
-        .price-card li::before { content: '✅ '; }
-        .price-card li.no::before { content: '❌ '; }
-        .price-card li.no { color: #666; text-decoration: line-through; }
-        .price-card li.divider { list-style: none; border-top: 1px solid #2a2a3a; margin: 8px 0; padding: 0; }
-        .price-card li.divider::before { content: ''; }
-        .promo {
             text-align: center;
-            margin-top: 25px;
-            padding: 15px;
-            background: #1a1a2e;
-            border-radius: 8px;
-            color: #FFD700;
-            font-weight: 700;
         }
+        .access-step p { color: #ccc; font-size: 1em; margin: 0; }
+        .access-cta { text-align: center; margin-top: 30px; }
 
         /* How it works */
         .steps-grid {
@@ -285,11 +250,11 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2em; }
-            .pricing-cards { grid-template-columns: 1fr; }
             .cta-buttons { flex-direction: column; align-items: center; }
             .setup-step { flex-direction: column; align-items: center; text-align: center; }
             .step-content ul { text-align: left; }
             .faq-grid { grid-template-columns: 1fr; }
+            .access-step { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -300,25 +265,22 @@
     <a href="#" style="color:#00d4aa; font-weight:900; font-size:1.1em; margin-right:30px;">SmartFS</a>
     <a href="#demo" style="color:#888; margin:0 12px;">Demo</a>
     <a href="#features" style="color:#888; margin:0 12px;">Features</a>
-    <a href="#pricing" style="color:#FFD700; margin:0 12px; font-weight:700;">Pricing</a>
+    <a href="#access" style="color:#FF6B35; margin:0 12px; font-weight:700;">Access</a>
     <a href="#setup" style="color:#888; margin:0 12px;">Setup</a>
     <a href="#defender" style="color:#888; margin:0 12px;">Defender</a>
     <a href="#faq" style="color:#888; margin:0 12px;">FAQ</a>
-    <a href="https://flyffsmartfs.sell.app" target="_blank" style="color:#888; margin:0 12px;">Shop</a>
     <a href="https://discord.gg/YSvRJPrhvU" target="_blank" style="color:#5865F2; margin:0 12px;">Discord</a>
     <a href="https://www.elitepvpers.com/forum/flyff-trading/5352979-flyff-universe-smartfs.html" target="_blank" style="color:#FF6B35; margin:0 12px; font-weight:700; border:1px solid #FF6B35; padding:4px 10px; border-radius:6px;">⭐ elitepvpers Thread</a>
 </nav>
 
 <!-- Hero -->
 <div class="hero">
-    <div class="trial-badge">FREE FOREVER — NO KEY REQUIRED + 24H PREMIUM TRIAL</div>
+    <div class="private-banner">⚠ PRIVATE USE ONLY — INVITE BASED — NOT FOR SALE ⚠</div>
     <h1>FLYFF <span>SmartFS</span></h1>
-    <p class="subtitle">The Final Evolution of Supporter Bots</p>
-    <p style="display:inline-block; background:rgba(0,212,170,0.15); color:#00d4aa; padding:6px 14px; border-radius:12px; font-size:0.9em; font-weight:600; margin-bottom:20px;">Latest: v1.0.31 — Smart AoE-Burst Heal + Killswitch Toggle + Faster Critical Heal</p>
-    <p class="tagline">Your FS plays itself. Auto-Heal, Auto-Buff, Holy Cross AI —<br>fully autonomous, running in the background.</p>
+    <p class="subtitle">Private FS Companion for Flyff Universe</p>
+    <p class="tagline">A personal-use bot running 24/7 on my own account during FWC.<br>Access is limited, invite-only, and granted against a vouch.</p>
     <div class="cta-buttons">
-        <a href="https://flyffsmartfs.sell.app/product/smartfsexezip?store=flyffsmartfs&quantity=1" class="btn btn-primary" target="_blank">Download Free</a>
-        <a href="https://flyffsmartfs.sell.app/product/premium?store=flyffsmartfs&quantity=1" class="btn btn-secondary" target="_blank">Buy Premium</a>
+        <a href="https://www.elitepvpers.com/forum/flyff-trading/5352979-flyff-universe-smartfs.html" class="btn btn-epvp" target="_blank">Request Access on elitepvpers</a>
         <a href="https://discord.gg/YSvRJPrhvU" class="btn btn-discord" target="_blank">Join Discord</a>
     </div>
 </div>
@@ -326,7 +288,7 @@
 <!-- YouTube Demo -->
 <div class="section" id="demo" style="text-align:center;">
     <h2>📺 <span>Setup & Demo</span></h2>
-    <p style="color:#999; margin-bottom:20px;">5-minute setup walkthrough + Holy Cross live demo</p>
+    <p style="color:#999; margin-bottom:20px;">Setup walkthrough + Holy Cross live demo</p>
     <div style="position:relative; max-width:800px; margin:0 auto; padding-bottom:45%; height:0;">
         <iframe style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:12px; border:1px solid #2a2a3a;"
                 src="https://www.youtube.com/embed/bnQxzfkAyIM"
@@ -339,94 +301,122 @@
 
 <!-- Features -->
 <div class="section" id="features">
-    <h2>Everything Your FS <span>Needs</span></h2>
+    <h2>What SmartFS <span>Does</span></h2>
+    <p style="text-align:center; color:#999; margin-bottom:30px; max-width:700px; margin-left:auto; margin-right:auto;">
+        SmartFS is a fully autonomous FS companion. It reads the game visually through Chrome DevTools Protocol —
+        no memory injection, no DLL hooking, no forced window focus. You play your Main; it plays the FS.
+    </p>
     <div class="features-grid">
         <div class="feature-card">
             <div class="icon">🛡️</div>
-            <span class="badge badge-basic">BASIC</span>
-            <h3>Auto-Heal</h3>
-            <p>Real-time HP monitoring through the party window. Heals instantly when Main's HP drops. Supports Heal and Heal Rain — choose your build.</p>
+            <h3>Smart Heal + AoE-Burst</h3>
+            <p>Real-time HP monitoring through the party window. When 2+ emergencies hit within 5s, it escalates to aggressive Burst-Mode spam until HP is safe again.</p>
         </div>
         <div class="feature-card">
             <div class="icon">🚨</div>
-            <span class="badge badge-basic">BASIC</span>
             <h3>Emergency Heal</h3>
-            <p>Critical HP detected? All actions are instantly interrupted — the bot spam-heals until Main is safe. Highest priority in the entire system.</p>
+            <p>Critical HP detected? All actions instantly interrupted — spam-heal at priority above everything else, including mid-buff-sequences.</p>
         </div>
         <div class="feature-card">
             <div class="icon">💀</div>
-            <span class="badge badge-premium">PREMIUM</span>
             <h3>Auto Resurrection</h3>
-            <p>Main died? Bot automatically casts Resurrection, verifies HP, retries up to 3 times. Healing and buffing resume instantly after res.</p>
+            <p>Main died? Bot casts Resurrection, verifies HP, retries up to 3 times. Healing and buffing resume instantly after the res lands.</p>
         </div>
         <div class="feature-card">
             <div class="icon">✨</div>
-            <span class="badge badge-basic">BASIC</span>
-            <h3>Auto-Buff (13 Skills)</h3>
-            <p>All RM/FS buff skills with individual timers. Haste, Patience, Quick Step, Beef Up, GT, Holy Guard and more. Natural timing variation included.</p>
+            <h3>Icon-Detection Rebuff</h3>
+            <p>13 Main buffs + GT + Holy Guard, visually detected. Recasts only when the icon actually disappears — with blink-trigger for expiry frames.</p>
         </div>
         <div class="feature-card">
             <div class="icon">👁️</div>
-            <span class="badge badge-premium">PREMIUM</span>
-            <h3>Icon Detection</h3>
-            <p>Visually detects missing buff icons on Main. Only rebuffs when a buff is confirmed missing — no wasted casts, no predictable patterns.</p>
+            <h3>Self-Buff Auto-Detect</h3>
+            <p>7 FS self-buffs including Mental Sign priority, with brightness-based blink detection. Self buffs first, Main retargeted after.</p>
         </div>
         <div class="feature-card">
             <div class="icon">⚔️</div>
-            <span class="badge badge-premium">PREMIUM</span>
-            <h3>Holy Cross AI</h3>
-            <p>Custom-trained AI model detects monsters in real time. Identifies Main's target and casts HC automatically. Runs as a separate parallel process.</p>
+            <h3>Holy Cross AI (Alpha)</h3>
+            <p>Custom-trained YOLO model detects monsters in real time. Identifies Main's actual target and casts HC automatically. Healing always preempts HC mid-cast.</p>
         </div>
         <div class="feature-card">
             <div class="icon">💊</div>
-            <span class="badge badge-basic">BASIC</span>
             <h3>MP Potion</h3>
-            <p>Independent background monitoring — uses potions automatically when MP runs low. Works even during rebuff sequences. Anti-spam protection built in.</p>
+            <p>Independent background monitoring — uses potions automatically when MP runs low. Works in parallel with buff sequences and HC. Anti-spam built in.</p>
         </div>
         <div class="feature-card">
             <div class="icon">🩹</div>
-            <span class="badge badge-basic">BASIC</span>
             <h3>FTool Mode</h3>
-            <p>Replaces external FTool scripts — one toggle, permanent heal spam at your own interval (0.3–3s slider). Exclusive mode: when active, no buffs / HC / rebuff interfere. Perfect for AFK grind or FS self-defense.</p>
+            <p>Dedicated toggle for permanent heal spam at a configurable interval (0.3–3s). Clean replacement for external FTool-style scripts.</p>
         </div>
         <div class="feature-card">
             <div class="icon">🖥️</div>
-            <span class="badge badge-basic">BASIC</span>
             <h3>Full Background Mode</h3>
-            <p>No mouse hijacking, no window focus stealing, no blocked keyboard. Play your Main, browse the web, or watch movies — your FS just works.</p>
+            <p>No mouse hijacking, no window focus stealing, no blocked keyboard. Play your Main, browse the web, or watch movies. The FS just runs.</p>
         </div>
         <div class="feature-card">
-            <div class="icon">🔄</div>
-            <span class="badge badge-premium">PREMIUM</span>
-            <h3>Self-Buff & Self-Heal</h3>
-            <p>Monitors your FS for missing buffs and HP drops. Auto-heals when taking aggro, recasts self-buffs when they expire. 7 self-buffs supported — Mental Sign always first, Haste always second.</p>
+            <div class="icon">🔑</div>
+            <h3>Killswitch Toggle</h3>
+            <p>One key (default: ALT) starts and stops the bot. Same key pressed again resumes. Configurable, reliable, edge-triggered.</p>
         </div>
+    </div>
+</div>
+
+<!-- Access -->
+<div class="access" id="access">
+    <div class="access-inner">
+        <h2>🔑 How to <span>Get Access</span></h2>
+        <p class="access-intro">
+            SmartFS is <strong>not for sale</strong> and not publicly released. I built it for myself and I'm using it 24/7
+            during the upcoming FWC on my own account. A handful of long-time elitepvpers members have asked for access —
+            I'd rather hand it out to people I trust than have it copied and resold.
+        </p>
+        <div class="access-steps">
+            <div class="access-step">
+                <p>You have an established <strong>elitepvpers profile</strong> with real history — posts, reputation, time on site. Throwaways get ignored.</p>
+            </div>
+            <div class="access-step">
+                <p>Send me a <strong>PM on elitepvpers</strong> with your profile link and a short note on what you'd use it for.</p>
+            </div>
+            <div class="access-step">
+                <p>If I hand you access, you post an <strong>honest vouch</strong> in the thread after testing.</p>
+            </div>
+            <div class="access-step">
+                <p>That's it. <strong>No payment, no Discord tickets, no shop.</strong> Priority goes to members I already know or who have vouched for similar releases.</p>
+            </div>
+        </div>
+        <div class="access-cta">
+            <a href="https://www.elitepvpers.com/forum/flyff-trading/5352979-flyff-universe-smartfs.html" class="btn btn-epvp" target="_blank">→ Go to the elitepvpers Thread ←</a>
+        </div>
+        <p style="text-align:center; color:#888; margin-top:25px; font-size:0.9em;">
+            <strong>No guaranteed support during FWC.</strong> I'm grinding — you're on your own for setup issues.
+            Documentation and FAQ below. Real bugs can be PM'd; whether they get fixed depends on whether my own Main needs the fix too.
+        </p>
     </div>
 </div>
 
 <!-- How it Works -->
 <div class="section">
     <h2>Up and Running in <span>5 Minutes</span></h2>
+    <p style="text-align:center; color:#999; margin-bottom:30px;">Short overview for users who have received access.</p>
     <div class="steps-grid">
         <div class="step">
-            <h3>Download</h3>
-            <p>Run the EXE — trial starts instantly. No key needed.</p>
+            <h3>Launch</h3>
+            <p>Run the EXE. GUI opens with your license state shown at the top.</p>
         </div>
         <div class="step">
             <h3>Open Browsers</h3>
-            <p>Click "Open Browser" for FS and Main. Log into Flyff.</p>
+            <p>Click "Open Browser" for FS and Main. Log into Flyff Universe.</p>
         </div>
         <div class="step">
             <h3>Scan Names</h3>
-            <p>One-time 10-second scan. Click Main and FS in the party window.</p>
+            <p>One-time 10-second scan — click Main and FS in the party window.</p>
         </div>
         <div class="step">
             <h3>Configure</h3>
-            <p>Set your heal and buff hotkeys. Enable what you need.</p>
+            <p>Set heal and buff hotkeys. Enable what you need.</p>
         </div>
         <div class="step">
             <h3>START</h3>
-            <p>Hit START. Your FS is now fully autonomous. Killswitch stops everything.</p>
+            <p>Hit START. Your FS is autonomous. Killswitch toggles on/off.</p>
         </div>
     </div>
 </div>
@@ -434,7 +424,7 @@
 <!-- Safety -->
 <div class="safety">
     <div class="safety-inner">
-        <h2>Safe & <span style="color:#00d4aa">Undetectable</span></h2>
+        <h2>Safe &amp; <span style="color:#00d4aa">Undetectable</span></h2>
         <div class="safety-badges">
             <div class="safety-item">
                 <div class="icon">🔒</div>
@@ -460,88 +450,18 @@
     </div>
 </div>
 
-<!-- Pricing -->
-<div class="pricing" id="pricing">
-    <div class="pricing-inner">
-        <h2>Pricing</h2>
-        <p class="sale-badge">Start free. Upgrade only if you love it.</p>
-        <div class="pricing-cards">
-            <div class="price-card">
-                <h3 style="color:#888">Free</h3>
-                <div class="price-old">&nbsp;</div>
-                <div class="price price-free">€0</div>
-                <div class="period">forever — no key required</div>
-                <ul>
-                    <li><strong>FTool Mode</strong> (permanent heal spam)</li>
-                    <li><strong>Party Buffs via Timer</strong> (13 skills)</li>
-                    <li><strong>Self-Buffs via Timer</strong> (7 skills)</li>
-                    <li><strong>GT + Holy Guard via Timer</strong></li>
-                    <li>Auto-Follow + Killswitch</li>
-                    <li>Chrome / Edge / PWA support</li>
-                    <li>Auto-Updates</li>
-                    <li><strong>24h Premium trial</strong> on first start</li>
-                    <li class="divider"></li>
-                    <li class="no">Smart Heal (HP-based)</li>
-                    <li class="no">Emergency Heal</li>
-                    <li class="no">MP Potion automation</li>
-                    <li class="no">Icon Auto-Detect Rebuff</li>
-                    <li class="no">Self-Buff Auto-Detect</li>
-                    <li class="no">Self-Heal for FS</li>
-                    <li class="no">Auto Resurrection</li>
-                    <li class="no">Holy Cross AI</li>
-                </ul>
-                <a href="https://flyffsmartfs.sell.app/product/smartfsexezip?store=flyffsmartfs&quantity=1" class="btn btn-secondary" style="width:100%; border-color:#888; color:#888" target="_blank">Download Free</a>
-            </div>
-            <div class="price-card featured">
-                <h3 style="color:#FFD700">Premium</h3>
-                <div class="price-old">€14.99/month</div>
-                <div class="price price-premium">€9.99</div>
-                <div class="period">per month</div>
-                <ul>
-                    <li>Everything in Free, with <strong>Auto-Detect</strong> instead of Timer</li>
-                    <li><strong>Smart Heal</strong> (HP-based reactive)</li>
-                    <li><strong>Emergency Heal</strong> + <strong>MP Potion automation</strong></li>
-                    <li><strong>Icon Auto-Detect Rebuff</strong> (13 Main buffs, blink-trigger)</li>
-                    <li><strong>Self-Buff Auto-Detect</strong> (7 FS buffs)</li>
-                    <li><strong>GT Auto-Detect</strong> (visual on Main)</li>
-                    <li>Self-Heal (FS) + Auto Resurrection</li>
-                    <li>Holy Cross AI (Alpha)</li>
-                </ul>
-                <a href="https://flyffsmartfs.sell.app/product/premium?store=flyffsmartfs&quantity=1" class="btn btn-primary" style="width:100%" target="_blank">Get Premium</a>
-            </div>
-            <div class="price-card" style="border-color:#BB86FC">
-                <h3 style="color:#BB86FC">Lifetime</h3>
-                <div class="price-old">€50.99</div>
-                <div class="price price-lifetime">€39.99</div>
-                <div class="period">one-time — no subscription</div>
-                <ul>
-                    <li>Everything in Premium</li>
-                    <li><strong>Never expires</strong></li>
-                    <li>No monthly payments</li>
-                    <li>Break-even in ~4 months</li>
-                    <li>All future updates included</li>
-                    <li>VIP support priority</li>
-                    <li>Hardware-bound to one PC</li>
-                </ul>
-                <a href="https://flyffsmartfs.sell.app/product/lifetime?store=flyffsmartfs&quantity=1" class="btn btn-secondary" style="width:100%; border-color:#BB86FC; color:#BB86FC" target="_blank">Get Lifetime</a>
-            </div>
-        </div>
-        <div class="promo">🎁 PROMO CODE: SMARTFS10 — 10% off Premium &amp; Lifetime at checkout</div>
-    </div>
-</div>
-
 <!-- Setup Guide -->
 <div class="section" id="setup">
     <h2>📖 Complete <span>Setup Guide</span></h2>
-    <p style="text-align:center; color:#999; margin-bottom:30px;">From download to fully running bot in under 5 minutes.</p>
+    <p style="text-align:center; color:#999; margin-bottom:30px;">Full walkthrough for users who have received access. From launch to autonomous FS in under 5 minutes.</p>
 
     <div class="setup-steps">
         <div class="setup-step">
             <div class="step-number">1</div>
             <div class="step-content">
-                <h3>Download & Launch</h3>
-                <p>Download <strong>FlyffSmartFS.exe</strong> and run it. Windows Defender may show a warning — click <strong>"More info" → "Run anyway"</strong> (see Defender guide below).</p>
-                <p>On first start you automatically get <strong>24 hours full Premium trial</strong> — all features unlocked, countdown visible at the top. After the trial, the bot keeps running on the Free tier (FTool + Auto-Follow + Timer-Self-Buffs).</p>
+                <h3>Launch the EXE</h3>
+                <p>Run <strong>FlyffSmartFS.exe</strong>. Windows Defender may show a warning — click <strong>"More info" → "Run anyway"</strong> (see Defender guide below).</p>
+                <p>The GUI shows your license state at the top.</p>
             </div>
         </div>
 
@@ -549,8 +469,8 @@
             <div class="step-number">2</div>
             <div class="step-content">
                 <h3>Open Browsers</h3>
-                <p>Recommended: in the GUI, click <strong>"Open FS Browser"</strong> and <strong>"Open Main Browser"</strong>. This launches Chrome/Edge in debug mode and opens Flyff Universe directly.</p>
-                <p>Already have Flyff open? Since <strong>v1.0.22</strong>, SmartFS also detects already-running Flyff windows — including <strong>installed apps (PWAs)</strong>. On the first scan or start, the bot offers a one-click restart with debug port. Your login stays intact.</p>
+                <p>In the GUI, click <strong>"Open FS Browser"</strong> and <strong>"Open Main Browser"</strong>. This launches Chrome/Edge in debug mode and opens Flyff Universe directly.</p>
+                <p>Already have Flyff open? The bot detects already-running Flyff windows — including <strong>installed apps (PWAs)</strong>. On first scan or start, it offers a one-click restart with debug port. Your login stays intact.</p>
             </div>
         </div>
 
@@ -558,7 +478,7 @@
             <div class="step-number">3</div>
             <div class="step-content">
                 <h3>Log into Flyff</h3>
-                <p>In both browser windows: navigate to Flyff Universe, log in, and press <strong>F11</strong> for Fullscreen (1920x1080 required).</p>
+                <p>In both browser windows: navigate to Flyff Universe, log in, press <strong>F11</strong> for Fullscreen (1920x1080 recommended).</p>
                 <p>Make sure FS and Main are in the <strong>same party</strong>. On your FS browser:</p>
                 <ul>
                     <li>Open the <strong>party window</strong> with HP bars on the <strong>LEFT side</strong></li>
@@ -588,7 +508,7 @@
                     <li><strong>Phase 2:</strong> Click on FS name → blue rectangle</li>
                     <li><strong>Phase 3:</strong> View switches to char info → click your character name → orange rectangle</li>
                 </ul>
-                <p>Done! The bot has learned your UI layout. Re-scan anytime if needed.</p>
+                <p>A verification popup confirms HP/MP read. Re-scan any time if the UI layout changes.</p>
             </div>
         </div>
 
@@ -604,15 +524,15 @@
         <div class="setup-step">
             <div class="step-number">7</div>
             <div class="step-content">
-                <h3>Configure & Start</h3>
+                <h3>Configure &amp; Start</h3>
                 <p>In the <strong>"Skills Main"</strong> tab:</p>
                 <ul>
                     <li>Enable <strong>Heal</strong> or <strong>Heal Rain</strong> (never both!)</li>
                     <li>Enable the buffs you want and enter matching Flyff hotkeys</li>
                     <li>Enable <strong>Auto Rebuff</strong> and <strong>Auto Follow</strong></li>
                 </ul>
-                <p>Hit <strong>START</strong>. Your FS is now fully autonomous.</p>
-                <p><strong>Killswitch (ALT)</strong> stops everything instantly — configurable in the Setup tab.</p>
+                <p>Hit <strong>START</strong>. Your FS is now autonomous.</p>
+                <p><strong>Killswitch (ALT)</strong> toggles on/off — same key starts and stops. Configurable in the Setup tab.</p>
             </div>
         </div>
     </div>
@@ -622,7 +542,7 @@
 <div class="safety" id="defender">
     <div class="safety-inner" style="text-align:left; max-width:800px;">
         <h2 style="text-align:center;">⚠️ Windows <span style="color:#00d4aa">Defender</span> Guide</h2>
-        <p style="text-align:center; color:#999; margin-bottom:25px;">SmartFS is not code-signed yet — Defender may flag it as suspicious. This is a false positive.</p>
+        <p style="text-align:center; color:#999; margin-bottom:25px;">SmartFS is not code-signed — Defender may flag it as suspicious. This is a false positive (typical for unsigned Python EXEs).</p>
 
         <h3 style="color:#fff;">When launching the EXE:</h3>
         <ol style="color:#ccc; margin:10px 0 20px 20px;">
@@ -634,12 +554,12 @@
         <h3 style="color:#fff;">Add to Defender exclusions (recommended):</h3>
         <ol style="color:#ccc; margin:10px 0 20px 20px;">
             <li>Open <strong>Windows Security</strong> (search in Start menu)</li>
-            <li>Go to <strong>Virus & threat protection</strong></li>
-            <li>Click <strong>Manage settings</strong> under "Virus & threat protection settings"</li>
+            <li>Go to <strong>Virus &amp; threat protection</strong></li>
+            <li>Click <strong>Manage settings</strong> under "Virus &amp; threat protection settings"</li>
             <li>Scroll to <strong>Exclusions</strong> → click <strong>Add or remove exclusions</strong></li>
             <li>Click <strong>Add an exclusion</strong> → <strong>Folder</strong></li>
             <li>Select the folder where FlyffSmartFS.exe is located</li>
-            <li>Done! Defender will no longer interfere.</li>
+            <li>Done — Defender will no longer interfere.</li>
         </ol>
 
         <h3 style="color:#fff;">If Defender already deleted the EXE:</h3>
@@ -647,7 +567,7 @@
             <li>Open <strong>Windows Security</strong></li>
             <li>Go to <strong>Protection history</strong></li>
             <li>Find the SmartFS entry → click <strong>Actions</strong> → <strong>Allow on device</strong></li>
-            <li>Re-download the EXE</li>
+            <li>Request the EXE again</li>
         </ol>
     </div>
 </div>
@@ -658,16 +578,20 @@
 
     <div class="faq-grid">
         <div class="faq-item">
-            <h3>Is there a free trial?</h3>
-            <p>Better than a trial: SmartFS is <strong>free forever</strong> with FTool Mode plus all 13 Party Buffs, 7 Self-Buffs and GT + Holy Guard via <strong>Timer</strong>. On top you get a <strong>24-hour full Premium trial</strong> on first start — unlocks <strong>Auto-Detect</strong> for all buffs, Smart Heal, MP Potion, HC etc. After the 24h, the bot keeps running on the Free tier with Timer-based buffs.</p>
+            <h3>Is SmartFS for sale?</h3>
+            <p>No. It's not publicly released and not available through any shop. Access is private, revocable, and handed out individually to trusted elitepvpers members against a vouch. See the <a href="#access">Access section</a> above.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Why no public release?</h3>
+            <p>Because I'm grinding FWC 24/7 on my own account and can't offer reliable support at the same time. Private access to a small circle of trusted members means nobody pays for something I can't support.</p>
         </div>
         <div class="faq-item">
             <h3>What resolution is supported?</h3>
-            <p>1920x1080 Fullscreen is the main target. <strong>1440p and 4K are also supported</strong> since v1.0.2 — the scan dialog and bar measurements scale proportionally.</p>
+            <p>1920x1080 Fullscreen is the main target. <strong>1440p and 4K are also supported</strong> — the scan dialog and bar measurements scale proportionally.</p>
         </div>
         <div class="faq-item">
             <h3>Can I use my PC while it runs?</h3>
-            <p>Yes, but Flyff must stay in the <strong>foreground</strong>. ALT+TAB away or minimizing the Flyff browser triggers Chromium's WebGL background throttling — the bot sees stale pixels and reacts with delay. Tip: use a second monitor or position the bot GUI next to Flyff.</p>
+            <p>Yes, but Flyff must stay in the <strong>foreground</strong>. ALT+TAB away or minimizing the Flyff browser triggers Chromium's WebGL background throttling — the bot sees stale pixels. Use a second monitor or position the bot GUI next to Flyff.</p>
         </div>
         <div class="faq-item">
             <h3>Do I need both accounts on one PC?</h3>
@@ -675,49 +599,41 @@
         </div>
         <div class="faq-item">
             <h3>Chrome or Edge?</h3>
-            <p>Both work, including Flyff as an <strong>installed app (PWA)</strong> since v1.0.22. The bot auto-detects already-running instances and offers a one-click relaunch with debug port.</p>
+            <p>Both work, including Flyff as an <strong>installed app (PWA)</strong>. The bot auto-detects already-running instances and offers a one-click relaunch with debug port.</p>
         </div>
         <div class="faq-item">
             <h3>Can I use Flyff as an installed app?</h3>
-            <p>Yes. Since v1.0.22 the bot supports PWA (Edge/Chrome "Install as app"). Limitation: if BOTH chars are PWAs, Chromium shares one process — use mixed mode (one PWA + one regular tab) or two different browsers.</p>
+            <p>Yes. Limitation: if BOTH chars are PWAs, Chromium shares one process — use mixed mode (one PWA + one regular tab) or two different browsers.</p>
         </div>
         <div class="faq-item">
             <h3>Is it detectable?</h3>
-            <p>SmartFS uses proprietary screen reading and input simulation. No memory injection, no DLL hooking. Designed to be invisible to anti-cheat. Botting violates Flyff ToS — use at your own risk.</p>
-        </div>
-        <div class="faq-item">
-            <h3>My key says "already activated"?</h3>
-            <p>Keys are bound to one PC. If you reinstalled Windows or changed hardware, join our <a href="https://discord.gg/YSvRJPrhvU" target="_blank">Discord</a> and open a support ticket for a key reset.</p>
-        </div>
-        <div class="faq-item">
-            <h3>Windows Defender blocks the EXE?</h3>
-            <p>The EXE is not code-signed yet — false positive. See the <a href="#defender">Defender Guide</a> above for step-by-step instructions.</p>
+            <p>SmartFS uses CDP (Chrome DevTools Protocol) for input — events land directly in the browser's JS engine, no OS-level keystrokes. No memory injection, no DLL hooking. Botting still violates Flyff ToS — use at your own risk.</p>
         </div>
         <div class="faq-item">
             <h3>What about Holy Cross?</h3>
-            <p>HC is in Alpha. It uses a custom AI model (~200 MB one-time download). Works best with FS close to Main, camera zoomed out, monsters that live 5+ seconds.</p>
+            <p>HC is in Alpha. It uses a custom YOLO model (~200 MB one-time download). Works best with FS close to Main, camera zoomed out, monsters that live 5+ seconds.</p>
         </div>
         <div class="faq-item">
-            <h3>How fast are bug fixes?</h3>
-            <p>Usually within hours. Fixes deploy via auto-update — no manual download needed. Report issues on <a href="https://discord.gg/YSvRJPrhvU" target="_blank">Discord</a> or via PM.</p>
+            <h3>Do I get support?</h3>
+            <p>No guaranteed support during FWC. The Discord server is open for general chat — feel free to hang out — but access is not handed out via Discord DMs to strangers. Real bugs can be PM'd on elitepvpers; fixes happen when my own Main needs them.</p>
         </div>
         <div class="faq-item">
             <h3>Does it work on private servers?</h3>
             <p>SmartFS is built for Flyff Universe (browser version). Private servers with different clients are not supported.</p>
         </div>
         <div class="faq-item">
-            <h3>Where can I get support?</h3>
-            <p>Join our <a href="https://discord.gg/YSvRJPrhvU" target="_blank">Discord server</a> — we have English and German support channels, setup guides, FAQ, and a ticket system.</p>
+            <h3>Windows Defender blocks the EXE?</h3>
+            <p>The EXE is not code-signed — false positive. See the <a href="#defender">Defender Guide</a> above for step-by-step instructions.</p>
         </div>
     </div>
 </div>
 
 <!-- Final CTA -->
 <div class="section" style="text-align:center; padding: 60px 20px;">
-    <h2>Ready to <span>Automate</span> Your FS?</h2>
-    <p style="color:#999; margin-bottom:30px; font-size:1.1em;">Free forever. 24h Premium trial on first start. No key required.</p>
+    <h2>Want <span>Access</span>?</h2>
+    <p style="color:#999; margin-bottom:30px; font-size:1.1em;">Established elitepvpers members only. PM me on epvp — vouch required.</p>
     <div class="cta-buttons">
-        <a href="https://flyffsmartfs.sell.app/product/smartfsexezip?store=flyffsmartfs&quantity=1" class="btn btn-primary" target="_blank">Download Now — It's Free</a>
+        <a href="https://www.elitepvpers.com/forum/flyff-trading/5352979-flyff-universe-smartfs.html" class="btn btn-epvp" target="_blank">Request Access on elitepvpers</a>
         <a href="https://discord.gg/YSvRJPrhvU" class="btn btn-discord" target="_blank">Join Discord</a>
     </div>
 </div>
@@ -725,14 +641,13 @@
 <!-- Footer -->
 <div class="footer">
     <div class="footer-links">
-        <a href="https://flyffsmartfs.sell.app" target="_blank">Shop</a>
         <a href="https://discord.gg/YSvRJPrhvU">Discord</a>
         <a href="https://www.elitepvpers.com/forum/flyff-trading/5352979-flyff-universe-smartfs.html" target="_blank">elitepvpers Thread</a>
     </div>
     <p style="margin-top:15px;">
-        Official trading thread: <a href="https://www.elitepvpers.com/forum/flyff-trading/5352979-flyff-universe-smartfs.html" target="_blank" style="color:#00d4aa;">elitepvpers.com &mdash; Flyff Universe SmartFS</a>
+        Access requests via PM: <a href="https://www.elitepvpers.com/forum/flyff-trading/5352979-flyff-universe-smartfs.html" target="_blank" style="color:#00d4aa;">elitepvpers.com &mdash; Flyff Universe SmartFS</a>
     </p>
-    <p>Flyff SmartFS &copy; 2026. Botting violates Flyff Universe ToS. Use at your own risk.</p>
+    <p>Flyff SmartFS &copy; 2026. Private use only — not for sale. Botting violates Flyff Universe ToS. Use at your own risk.</p>
     <p style="margin-top:5px;">Not affiliated with Gala Lab or Sniegu.</p>
 </div>
 
